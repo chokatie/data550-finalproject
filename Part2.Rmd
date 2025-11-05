@@ -1,0 +1,71 @@
+---
+title: "__Final Project Part 2__"
+author: "Katherine Cho"
+date: "2025-09-25"
+output: pdf_document
+header-includes:
+  - \usepackage{float}
+  - \usepackage{booktabs}
+  - \usepackage{makecell}
+  - \usepackage[singlelinecheck = false, justification = raggedright]{caption}
+  - \setlength{\parindent}{2em}
+---
+# Introduction
+### 1. Objectives of Analysis
+
+> - Explore potential correlations between household income and substance abuse
+> - Examine the role of socioeconomic status in increasing risk of substance abuse during pregnancy—holding constant age, race, and health insurance status 
+> - Provide a findings report with figures, tables, and discussion sections
+ 
+```{r, set-chunk-opts, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+```
+
+```{r, load-data}
+here::i_am("Part2.Rmd")
+data <- readRDS(
+  file = here::here("cleandata/00_cd.rds")
+)
+```
+
+### 2. Dataset Description
+> This dataset is from the 2022 National Survey on Drug Use and Health (NSDUH) conducted by the Substance Abuse and Mental Health Services Administration (SAMHSA). The goal of this survey is to provide nationally representative data on substance use, disorders, and treatment among the US population aged older than 12 to allow for better understanding and improvement of the nation’s behavioral health. This dataset has extensive information on different substance use disorders, pregnant individuals, and varied measures of income. 
+
+\newpage
+
+# Results
+```{r, figure1}
+fig_1 <- readRDS(
+  file = here::here("output/figure_one.rds")
+  )
+fig_1
+```
+
+\vspace{1em}
+\vspace{1em}
+\vspace{1em}
+
+<span style="font-size:10pt"> __Figure 1 Description__</span>
+
+\indent <span style="font-size:10pt"> The relationship between household income and the proportion of individuals that reported drug abuse, stratified by pregnancy status. In both strata, drug abuse incidence remains high, exceeding 50% in almost all income categories. Notably, the proportion of individuals reporting drug abuse is lowest in the <$20k and $20–49k income brackets and appears to increase with higher income levels, peaking in the $75k+ group for both strata. The differences between pregnant and non-pregnant groups are minute but important—with pregnant individuals tending to show a slightly lower level of drug abuse in the lowest income category compared to non-pregnant counterparts.</span>
+
+\indent <span style="font-size:10pt"> However, as household income increases the aforementioned difference diminishes/reverses and the highest levels of income are seen to be associated with the highest rates of drug abuse. These findings are interesting as they indicate that the correlation between income and substance abuse may be complex and contradict traditional expectations of higher SES as a protective measure against risk behaviors.</span>
+
+
+
+```{r, table1, results = 'asis', include = TRUE}
+tab_1 <- readRDS(
+  file = here::here("output/table_one.rds")
+  )
+tab_1
+```
+\newpage
+
+<span style="font-size:10pt"> __Table 1 Description__</span>
+
+\indent <span style="font-size:10pt"> The total sample comprised of 8,444 individuals with the majority of participants identified as White (66%), followed by Hispanic (14%), Black (8.5%), and smaller proportions of Native American/Alaska Native, Asian, Native Hawaiian/Pacific Islander, and multiracial backgrounds. Most were privately insured (94%), with only small fractions covered by Medicare (0.7%) or Medicaid/CHIP (5.2%), and nearly none by Champus/Other plans.</span>
+
+\indent <span style="font-size:10pt"> Socioeconomic status—measured by annual household income—reported 57% of the sample population had earnings of $75,000 or more, while 7.8% fell below $20,000 and the remaining subjects distributed across intermediate income categories. Clinical need was assessed with respect to drug and alcohol abuse. Across the entire sample, 71% were classified with drug abuse and 71% with alcohol abuse, while the remaining 29% in each case had no indication of either.</span>
