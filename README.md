@@ -17,7 +17,10 @@
       	- creates a bar graph of household income and the proportion of individuals who reported drug abuse
 		- graph (`figure_one.rds`) should be saved to `output/` <br><br>
 		
-4.  __`Part2.Rmd`__ reads in the data set from `cleandata/` and output from `output/` to create the report with descriptions and analysis combined <br><br><br>
+4.  __`Part2.Rmd`__ reads in the data set from `cleandata/` and output from `output/` to create the report with descriptions and analysis combined <br><br>
+
+5. __`renv.lock`__ and __`renv/`__  captures information on the packages used to create the report
+    - Makefile includes phony rule _(listed in the instructions below)_ to restore the package environment <br><br><br>
 
 *Note: __`code/03_render.R`__ is used for rendering the combined report from the command line <br><br><br>
 
