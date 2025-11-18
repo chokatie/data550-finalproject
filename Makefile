@@ -20,3 +20,8 @@ output: cleandata/00_cd.rds output/table_one.rds output/figure_one.rds
 .PHONY: clean
 clean:
 	rm -f output/*.rds && rm -f output/*.png && rm -f cleandata/*rds && rm -f *.html && rm -f *.pdf
+	
+# Phony rule checking if renv is installed on user's system (if not, it downloads) + if it is, installs project packages in renv.lock
+.PHONY: install
+install:
+	Rscript -e "if (!requireNamespace('renv', quietly=TRUE)) install.packages('renv'); renv::restore()"
