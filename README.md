@@ -33,7 +33,8 @@
     - NOTE: you can also just open `finalproject.Rproj` to automatically go to the correct directory <br><br>
     
 2. In the terminal, type **"make install"**
-    - this will make sure "renv" is installed and restores the R project package environment <br><br>
+    - `if (!requireNamespace('renv', quietly=TRUE)) install.packages('renv')` makes sure "renv" is installed; if it isn't, it will install it
+    - `renv::restore()` synchronizes the R project package environment <br><br>
 
 3. In the terminal, type **"make clean"**
     - check the `output/` and `cleandata/` folders to ensure they are empty <br><br>
