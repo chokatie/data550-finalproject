@@ -28,7 +28,7 @@
 
 # Generating the Report <br>
 
-1. **Make sure you are in the correct project directory** `finalproject/` by typing in "pwd" in your terminal + "getwd()"" in your console.
+1. **Make sure you are in the correct project directory** `finalproject/` by typing in "pwd" in your terminal + "getwd()" in your console.
     - if you aren't in the right _terminal directory_, use "cd " to change into it; if not in right _console directory_, use "setwd()"
     - NOTE: you can also just open `finalproject.Rproj` to automatically go to the correct directory <br><br>
     
