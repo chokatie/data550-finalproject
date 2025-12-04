@@ -41,7 +41,7 @@
 1. **Make sure you are in the correct project directory** <br><br>  
 
 2. In the terminal, type **"docker build -t fp_image1 ."**
-    - this will build the docker image to your local system
+    - this will build the docker image to your local system <br><br>  
     
 3. OR access the image on DockerHub here: https://hub.docker.com/layers/chokatie/fp_image1/latest/images/sha256-bd9a8cd4d46cb7cb0a07774c4b09f57a7ef771aeb586a7d4e93da95e4e3a8603
   - to call the image on your local system, type **"docker pull chokatie/fp_image1:latest"** in your terminal
