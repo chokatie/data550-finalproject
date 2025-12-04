@@ -1,10 +1,9 @@
+# REPORT-ASSOCIATED RULES (run within docker container)
 Part2.pdf: code/03_render.R Part2.Rmd output
 	Rscript code/03_render.R
 
-
 cleandata/00_cd.rds: code/00_cleandata.R rawdata/NSDUH_2022.Rdata
 	Rscript code/00_cleandata.R
-
 
 output/table_one.rds: code/01_analysis_tbl.R cleandata/00_cd.rds
 	Rscript code/01_analysis_tbl.R
@@ -19,9 +18,16 @@ output: cleandata/00_cd.rds output/table_one.rds output/figure_one.rds
 # Phony rule for cleaning both output folders + rendered document
 .PHONY: clean
 clean:
-	rm -f output/*.rds && rm -f output/*.png && rm -f cleandata/*rds && rm -f *.html && rm -f *.pdf
+	rm -f output/*.rds && rm -f output/*.png && rm -f cleandata/*rds && rm -f *.html && rm -f *.pdf && rm -f finalreport/*.pdf
 	
-# Phony rule checking if renv is installed on user's system (if not, it downloads) + if it is, installs project packages in renv.lock
+#Phony rule checking if renv is installed on user's system (if not, it downloads) + if it is, installs project packages in renv.lock
 .PHONY: install
 install:
 	Rscript -e "if (!requireNamespace('renv', quietly=TRUE)) install.packages('renv'); renv::restore()"
+
+
+#Rule to build report automatically in container
+.PHONY: finalreport
+finalreport:
+	mkdir -p finalreport
+	docker run -v $$(pwd)/finalreport:/project/finalreport chokatie/fp_image1

@@ -25,19 +25,23 @@
 *Note: __`code/03_render.R`__ is used for rendering the combined report from the command line <br><br><br>
 
 
-
 # Generating the Report <br>
-
+ 
 1. **Make sure you are in the correct project directory** `finalproject/` by typing in "pwd" in your terminal + "getwd()" in your console.
     - if you aren't in the right _terminal directory_, use "cd " to change into it; if not in right _console directory_, use "setwd()"
-    - NOTE: you can also just open `finalproject.Rproj` to automatically go to the correct directory <br><br>
+    - NOTE: you can also just open `finalproject.Rproj` to automatically go to the correct directory <br><br>   
     
-2. In the terminal, type **"make install"**
-    - `if (!requireNamespace('renv', quietly=TRUE)) install.packages('renv')` makes sure "renv" is installed; if it isn't, it will install it
-    - `renv::restore()` synchronizes the R project package environment <br><br>
+2. In the terminal, type **"make finalreport"** and watch as the report generates
+    - view the finished report by accessing the `finalreport/` file
+    - in this folder there should be a `Part2.pdf` file that you can open
 
-3. In the terminal, type **"make clean"**
-    - check the `output/` and `cleandata/` folders to ensure they are empty <br><br>
+
+# [OPTIONAL] Dockerfile Image Build Instructions <br>
+
+1. **Make sure you are in the correct project directory** <br><br>  
+
+2. In the terminal, type **"docker build -t fp_image1 ."**
+    - this will build the docker image to your local system
     
-4. In the terminal, type **"make"** and watch as the report generates!
-
+3. OR access the image on DockerHub here: https://hub.docker.com/layers/chokatie/fp_image1/latest/images/sha256-bd9a8cd4d46cb7cb0a07774c4b09f57a7ef771aeb586a7d4e93da95e4e3a8603
+  - to call the image on your local system, type **"docker pull chokatie/fp_image1:latest"** in your terminal

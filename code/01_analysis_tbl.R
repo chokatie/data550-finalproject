@@ -8,6 +8,7 @@ colnames(data)
 head(data)
 library(gtsummary)
 library(dplyr)
+library(broom)
 
 # Create Bivariate Analysis Table using gtsummary
 tbl <- data %>%
